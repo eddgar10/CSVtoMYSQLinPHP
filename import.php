@@ -1,6 +1,13 @@
 <?php
 //include_once("../db_connect.php");
+
+
 include __DIR__ . '/db_connect.php';
+
+//LIMPIEZA PREVIA DE TABLA QUE ALMACENA TEMPORALMENTE LOS REGISTROS PARA POSTERIOR EJECUTAR EL QWERY SELECCIONADO EN EL MENU FRON
+$sql= "DELETE FROM emp ";
+                $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+
 if(isset($_POST['import_data'])){
 // validate to check uploaded file is a valid csv file
 $file_mimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain');

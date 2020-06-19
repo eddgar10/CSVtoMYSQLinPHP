@@ -59,7 +59,9 @@ https://programacion.net/articulo/importar_un_archivo_csv_a_mysql_utilizando_php
                    
                 include __DIR__ . '/db_connect.php';
                 
-                $sql = "SELECT emp_id, emp_name, emp_email, emp_salary, emp_age FROM emp ORDER BY emp_id DESC LIMIT 10";
+                
+
+                $sql = "SELECT * FROM emp ";
                 $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
                 if(mysqli_num_rows($resultset)) {
                 while( $rows = mysqli_fetch_assoc($resultset) ) {
@@ -73,7 +75,9 @@ https://programacion.net/articulo/importar_un_archivo_csv_a_mysql_utilizando_php
             </tr>
                 <?php } } else { ?>
                 <tr><td colspan="5">Sin información para mostrar</td></tr>
-                <?php } ?>
+                <?php }
+                
+                ?>
             </tbody>
             
         </table>
